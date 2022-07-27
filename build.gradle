@@ -87,3 +87,7 @@ assess.finalizedBy test
 test.finalizedBy jacocoTestReport
 jacocoTestReport.finalizedBy jacocoTestCoverageVerification
 
+wrapper {
+    gradleVersion = '7.3'
+    distributionType = Wrapper.DistributionType.ALL
+}
