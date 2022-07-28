@@ -8,17 +8,14 @@ public class Todo extends ICalendarItem {
     private String description;
     private TodoStatus status = TodoStatus.INCOMPLETE;
     private LocalDateTime completedAt;
-    private String ownerFirstName;
-    private String ownerLastName;
-    private String ownerEmail;
-    private String ownerJobTitle;
 
-    public Todo(String text, String ownerFirstName, String ownerLastName, String ownerEmail, String ownerJobTitle) {
+
+    private Owner owner;
+
+
+    public Todo(String text, Owner owner) {
         this.text = text;
-        this.ownerFirstName = ownerFirstName;
-        this.ownerLastName = ownerLastName;
-        this.ownerEmail = ownerEmail;
-        this.ownerJobTitle = ownerJobTitle;
+        this.owner = owner;
     }
 
     public String getText() {
@@ -36,6 +33,10 @@ public class Todo extends ICalendarItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public Owner getOwner() {
+        return owner;
     }
 
     @Override
@@ -59,21 +60,7 @@ public class Todo extends ICalendarItem {
         return completedAt;
     }
 
-    public String getOwnerFirstName() {
-        return ownerFirstName;
-    }
 
-    public String getOwnerLastName() {
-        return ownerLastName;
-    }
-
-    public String getOwnerJobTitle() {
-        return ownerJobTitle;
-    }
-
-    public String getOwnerEmail() {
-        return ownerEmail;
-    }
 
     @Override
     public String iCalendar() {
@@ -93,10 +80,10 @@ public class Todo extends ICalendarItem {
         return String.format(
                 "%s <%s %s> %s (%s): %s",
                 getText(),
-                getOwnerFirstName(),
-                getOwnerLastName(),
-                getOwnerEmail(),
-                getOwnerJobTitle(),
+                owner.getOwnerFirstName(),
+                owner.getOwnerLastName(),
+                owner.getOwnerEmail(),
+                owner.getOwnerJobTitle(),
                 status == TodoStatus.INCOMPLETE ? "incomplete" : "complete"
         );
     }
