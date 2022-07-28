@@ -2,7 +2,7 @@ package com.galvanize;
 
 import java.time.LocalDateTime;
 
-public class Reminder extends ICalendarItem implements Schedulable {
+public class Reminder extends ICalendarItem implements Completable, Schedulable {
 
     private final String description;
     private final LocalDateTime remindsAt;

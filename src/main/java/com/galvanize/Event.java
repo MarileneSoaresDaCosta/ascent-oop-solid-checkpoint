@@ -19,6 +19,7 @@ public class Event extends ICalendarItem implements Schedulable {
         return title;
     }
 
+    @Override
     public String getTextToDisplay() {
         return getTitle();
     }
@@ -36,20 +37,6 @@ public class Event extends ICalendarItem implements Schedulable {
         return startsAt.plus(getDuration());
     }
 
-    @Override
-    public void markComplete() {
-
-    }
-
-    @Override
-    public void markIncomplete() {
-
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
-    }
 
     @Override
     public String iCalendar() {
