@@ -64,7 +64,8 @@ public class Todo extends ICalendarItem {
 
     @Override
     public String iCalendar() {
-        if (text == null) throw new IllegalArgumentException("You must specify the text");
+//        if (text == null) throw new IllegalArgumentException("You must specify the text");
+        if (text == null) return "";
 
         return new StringBuilder()
                 .append("BEGIN:VTODO\n")
