@@ -2,7 +2,7 @@ package com.galvanize;
 
 import java.time.LocalDateTime;
 
-public class Reminder extends ICalendarItem {
+public class Reminder extends ICalendarItem implements Schedulable {
 
     private final String description;
     private final LocalDateTime remindsAt;
@@ -22,7 +22,8 @@ public class Reminder extends ICalendarItem {
         return getDescription();
     }
 
-    public LocalDateTime getRemindsAt() {
+    @Override
+    public LocalDateTime getSchedulableDate() {
         return remindsAt;
     }
 
@@ -47,7 +48,7 @@ public class Reminder extends ICalendarItem {
 
         return new StringBuilder()
                 .append("BEGIN:VALARM\n")
-                .append(String.format("TRIGGER:-%s\n", getRemindsAt()))
+                .append(String.format("TRIGGER:-%s\n", getSchedulableDate()))
                 .append("ACTION:DISPLAY\n")
                 .append(String.format("UID:%s@example.com\n", getUuid()))
                 .append(String.format("DESCRIPTION:%s\n", getTextToDisplay()))
@@ -60,7 +61,7 @@ public class Reminder extends ICalendarItem {
         return String.format(
                 "%s at %s (%s)",
                 getDescription(),
-                getRemindsAt().format(DATE_FORMATTER),
+                getSchedulableDate().format(DATE_FORMATTER),
                 isComplete() ? "complete" : "incomplete"
         );
     }

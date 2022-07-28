@@ -56,16 +56,17 @@ public class TodoTest {
         );
     }
 
-//    @Test
-//    public void returnsNewNameInAllTodosWhenChangesOwnerName() {
-//        Todo todo = new Todo("Do stuff", owner);
-//        Todo todo2 = new Todo("Do extra stuff", owner);
-//        todo.setOwnerName();
-//
-//        assertEquals(
-//                "There's a million things he hasn't done",
-//                todo.getDescription()
-//        );
-//    }
+    /*
+    @Test
+    public void returnsNewNameInAllTodosWhenChangesOwnerName() {
+        Todo todo = new Todo("Do stuff", owner);
+        Todo todo2 = new Todo("Do extra stuff", owner);
+        todo.setOwnerName();
 
+        assertEquals(
+                "There's a million things he hasn't done",
+                todo.
+        );
+    }
+*/
 }
